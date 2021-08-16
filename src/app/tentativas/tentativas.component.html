@@ -1,0 +1,22 @@
+<!-- exemplo de property biding 
+[property biding] é usado de modo específico alterando propriedades
+no html, enquanto a intepolação pode ser usado de modo genérico
+em qualquer parte do html 
+
+<img [src]="coracaoVazio">
+<img [src]="coracaoCheio">
+<img [src]="coracaoCheio">
+
+usando diretivas
+informe o elemento html: <img
+informe a diretiva passando uma expressão: *ngfor="let coracao of coracoes"
+onde let seta a variavel coracao, que pertence a um array de corações.
+
+Obs:Para efeito de comparação, é um for each do .vb
+    Os snippets fornecem a sitax inteira: *ngFor="let item of collection" 
+    No caso abaixo, item é um objeto do tipo Coracao que contém o metodo
+    .exibeCoracao()  
+-->
+
+<img *ngFor="let coracao of coracoes" [src]="coracao.exibeCoracao()" />
+

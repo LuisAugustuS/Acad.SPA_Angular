@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="bg-light p-5 rounded-lg mt-3 pt-3 pb-3">
+        <!-- Primeira linha -->
+        <div class="row">
+            <!-- Sobre grids: https://getbootstrap.com/docs/5.0/layout/grid/ -->
+            <!-- Primeira coluna -->
+            <div class="col-sm-6">
+                <!-- Usando o property binding para obter informações do componente pai -->
+                <app-progresso [progresso] = "progresso"></app-progresso> 
+            </div>
+            <!-- Segunda coluna -->
+            <div class="col-sm-6">
+                <div class="d-flex justify-content-end">
+                    <app-tentativas [tentativas] = "tentativas"></app-tentativas>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Primeira coluna -->
+            <div class="col">
+                <h6>{{ instrucao }}</h6> <!-- String interpolation -->
+                <p>{{ rodadaFrase.fraseEng }}</p> <!-- String interpolation -->
+                <div class="formGroup">
+                    <textarea 
+                        class="form-control" 
+                        rows="3" 
+                        (input)="atualizaResposta($event)"
+                        [value] = "resposta"
+                    ></textarea>
+                    <!-- Event binding chamando o metodo atualizaResposta. 
+                         Não posso esquecer  de coloca o () no chamada do metodo  
+                         sintax: (evento esperado)="metodo()"
+                         Obs: O evento esta associado ao elemento HTML 
+
+                         (input)="atualizaResposta($event)" atualiza o atributo resposta
+                         [value] = "resposta" obtem o valor do atributo resposta no cpmponente painel
+                    -->
+                </div>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col">
+                <div class="d-flex justify-content-end">
+                    <button type="button" 
+                            class="btn btn-primary" 
+                            (click) = "verificarResposta()">Verificar
+                    </button>
+                    <!-- Event binding chamando o metodo verificarResposta. -->
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>  
